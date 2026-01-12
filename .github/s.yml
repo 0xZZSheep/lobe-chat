@@ -38,7 +38,7 @@ resources:
         S3_PUBLIC_DOMAIN: "https://lobe-chat-delete.oss-cn-hongkong.aliyuncs.com"
         S3_BUCKET: "lobe-chat-delete"
         S3_REGION: "cn-hongkong"
-        S3_FORCE_PATH_STYLE: false
+        S3_FORCE_PATH_STYLE: "false"
 
       triggers:
         - triggerName: httpTrigger
