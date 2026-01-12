@@ -31,7 +31,7 @@ resources:
         APP_URL: ${env('APP_URL')}
         KEY_VAULTS_SECRET: ${env('KEY_VAULTS_SECRET')}
         DATABASE_URL: ${env('DATABASE_URL')}
-        CLERK_WEBHOOK_SECRET: ${'env('CLERK_WEBHOOK_SECRET')'}
+        CLERK_WEBHOOK_SECRET: ${env('CLERK_WEBHOOK_SECRET')}
 
       triggers:
         - triggerName: httpTrigger
