@@ -17,6 +17,8 @@ env:
   CLERK_WEBHOOK_SECRET: ${{secrets.CLERK_WEBHOOK_SECRET}}
   NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: ${{secrets.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}}
   NEXT_PUBLIC_SERVICE_MODE: ${{secrets.NEXT_PUBLIC_SERVICE_MODE}}
+  ALIBABA_CLOUD_ACCESS_KEY_SECRET: ${{secrets.ALIBABA_CLOUD_ACCESS_KEY_SECRET}}
+  ALIBABA_CLOUD_ACCESS_KEY_ID: ${{secrets.ALIBABA_CLOUD_ACCESS_KEY_ID}}
 
 jobs:
   build-and-push:
@@ -74,8 +76,8 @@ jobs:
       - name: Configure Aliyun Credentials
         run: |
           s config add \
-            --AccessKeyID ${{ secrets.ALIBABA_CLOUD_ACCESS_KEY_ID }} \
-            --AccessKeySecret ${{ secrets.ALIBABA_CLOUD_ACCESS_KEY_SECRET }} \
+            --AccessKeyID ${{ env.ALIBABA_CLOUD_ACCESS_KEY_ID }} \
+            --AccessKeySecret ${{ env.ALIBABA_CLOUD_ACCESS_KEY_SECRET }} \
             -a default -f
 
       - name: Deploy to Function Compute
