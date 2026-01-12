@@ -1,0 +1,46 @@
+edition: 3.0.0
+name: lobe-chat-project
+
+vars:
+  region: "cn-hongkong"
+  functionName: "lobe-chat-fc"
+  image: ${env('IMAGE_URL')}
+
+resources:
+  lobe-chat-function:
+    component: fc3
+    access: default
+    props:
+      region: ${vars.region}
+      functionName: ${vars.functionName}
+      description: "lobe-chat on fc"
+      runtime: "custom-container"
+
+      cpu: 1.0
+      memorySize: 2048
+      diskSize: 512
+      timeout: 60
+      instanceConcurrency: 10
+
+      customContainerConfig:
+        image: ${vars.image}
+        port: 3000
+
+      environmentVariables:
+        # 必须项（示例）
+        NEXT_PUBLIC_ENABLE_OAUTH: "false"
+        OPENAI_API_KEY: ${env('OPENAI_API_KEY')}
+        OPENAI_BASE_URL: ${env('OPENAI_BASE_URL')}
+
+        # 可选项
+        DEFAULT_MODEL: "gpt-4o-mini"
+        ACCESS_CODE: ${env('ACCESS_CODE')}
+
+      triggers:
+        - triggerName: httpTrigger
+          triggerType: http
+          triggerConfig:
+            authType: anonymous
+            methods:
+              - GET
+              - POST
