@@ -24,7 +24,7 @@ resources:
 
       customContainerConfig:
         image: ${vars.image}
-        port: 3000
+        port: 3210
 
       triggers:
         - triggerName: httpTrigger
