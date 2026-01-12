@@ -26,6 +26,13 @@ resources:
         image: ${vars.image}
         port: 3210
 
+      environmentVariables:
+        CLERK_SECRET_KEY: ${env('CLERK_SECRET_KEY')}
+        APP_URL: ${env('APP_URL')}
+        KEY_VAULTS_SECRET: ${env('KEY_VAULTS_SECRET')}
+        DATABASE_URL: ${env('DATABASE_URL')}
+        CLERK_WEBHOOK_SECRET: ${'env('CLERK_WEBHOOK_SECRET')'}
+
       triggers:
         - triggerName: httpTrigger
           triggerType: http
