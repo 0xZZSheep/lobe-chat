@@ -39,7 +39,6 @@ resources:
         S3_BUCKET: "lobe-chat-delete"
         S3_REGION: "cn-hongkong"
         S3_SET_ACL: "true"
-        S3_ENABLE_PATH_STYLE: "true"
 
       triggers:
         - triggerName: httpTrigger
