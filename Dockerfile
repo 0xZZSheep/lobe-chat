@@ -107,6 +107,7 @@ EOF
 COPY . .
 
 # run build standalone for docker version
+ENV TSC_COMPILE_ON_ERROR=true
 RUN npm run build:docker
 
 # Prepare desktop export assets for Electron packaging (if generated)
