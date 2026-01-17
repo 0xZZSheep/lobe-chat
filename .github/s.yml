@@ -2,7 +2,7 @@ edition: 3.0.0
 name: lobe-chat-project
 
 vars:
-  region: "cn-hongkong"
+  region: "ap-northeast-1"
   functionName: "lobe-chat-fc"
   image: ${env('IMAGE_URL')}
 
